@@ -14,6 +14,7 @@ cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
 }
 
+##Function to make matrix and flip matrix 
 makeCacheMatrix <- function(x = matrix()) {
   i <- NULL
   set <- function(y) {
@@ -30,14 +31,17 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-cacheSolve <- function(x, ...) {
+## solve for the fliped matrix 
+cacheSolve <- function(x) {
   i <- x$getinverse()
   if (!is.null(i)) {
     message("getting cached data")
     return(i)
   }
   data <- x$get()
-  i <- solve(data, ...)
+  i <- solve(data)
   x$setinverse(i)
   i
 }
+
+
